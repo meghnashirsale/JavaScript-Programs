@@ -13,7 +13,7 @@ function validateName(){
  }
  if(!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
     nameError.innerHTML="Write Full Name";
-    return false;
+    return false;3
  }
  nameError.innerHTML='<i class="fa-solid fa-circle-check" style="color: #3f9d25;"></i>';
  return true;
@@ -37,4 +37,67 @@ function validateContact(){
     return true;
    }
    
-   
+   function validateEmail(){
+      var email= document.getElementById('contact-email').value;
+      if(email.length == 0){
+        emailError.innerHTML="Email is required";
+       return false;
+      }
+      if(!email.match(/^[A-Za-z\.\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+         emailError.innerHTML="Email invalid";
+         return false;
+      }
+      emailError.innerHTML='<i class="fa-solid fa-circle-check" style="color: #3f9d25;"></i>';
+      return true;
+   }
+
+   function validatePassword(){
+      var pass=document.getElementById('contact-password').value;
+      if(pass.length == 0){
+         passwordError.innerHTML="Password is required";
+        return false;
+       }
+      if (pass.length < 6) {
+          passwordError.innerHTML = 'Password must be at least 6 characters long.';
+        return false;
+     }
+    passwordError.innerHTML='<i class="fa-solid fa-circle-check" style="color: #3f9d25;"></i>';
+     return true;
+   }
+  
+   function validateCPassword() {
+      var pass = document.getElementById('contact-password').value;
+      var cpass = document.getElementById('contact-cpassword').value;
+      if (cpass.length == 0) {
+          cpasswordError.innerHTML = "Confirm password is required";
+          return false;
+      }
+      if (pass !== cpass) {
+          cpasswordError.innerHTML = 'Passwords do not match.';
+          return false;
+      }
+      cpasswordError.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #3f9d25;"></i>';
+      return true;
+  }
+  
+  function validateForm() {
+      if (!validateName() || !validateContact() || !validateEmail() || !validatePassword() || !validateCPassword()) {
+         submitError.style.display='block';
+          submitError.innerHTML = "Please fix errors to submit";
+          setTimeout(function(){submitError.style.display='none';},3000);
+          return false;
+      }
+      return true;
+  }
+  function togglePasswordVisibility() {
+   const passwordInput = document.getElementById('password');
+   const togglePassword = document.querySelector('.toggle-password');
+
+   if (passwordInput.type === 'password') {
+       passwordInput.type = 'text';
+       togglePassword.textContent = 'Hide';
+   } else {
+       passwordInput.type = 'password';
+       togglePassword.textContent = 'Show';
+   }
+}

@@ -25,22 +25,27 @@
                 </div>
                 <div class="input-group">
                     <label>Email Id</label>
-                    <input type="email" placeholder="Enter email" id="contact-name" onkeyup="validateName()">
+                    <input type="email" placeholder="Enter email" id="contact-email" onkeyup="validateEmail()">
                     <span id="email-error"></span>
                 </div>
                 <div class="input-group">
                     <label>Password</label>
-                    <input type="pass" placeholder="Enter password" id="contact-name" onkeyup="validateName()">
+                    <input type="password" placeholder="*******" id="contact-password" onkeyup="validatePassword()">
+                   
                     <span id="password-error"></span>
                 </div>
                 <div class="input-group">
                     <label>Confirm Password</label>
-                    <input type="cpass" placeholder="Enter confirm password" id="contact-name" onkeyup="validateName()">
+                    <input type="password" placeholder="*******" id="contact-cpassword" onkeyup="validateCPassword()">
+                    
                     <span id="cpassword-error"></span>
                 </div>
-                <button>Submit</button>
+                <button onclick="return validateForm()">Submit</button>
                 <span id="submit-error" id="contact-name" onkeyup="validateName()"></span>
             </form>
+        </div>
+        <div class="footer">
+            <p>Design By | Meghna Shirsale</p>
         </div>
         <script src="script.js"></script>
     </body>
